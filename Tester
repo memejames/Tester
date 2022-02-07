@@ -1,0 +1,48 @@
+
+
+local ScreenGui = Instance.new("ScreenGui")
+local main = Instance.new("Frame")
+local label = Instance.new("TextLabel")
+local hatch = Instance.new("TextButton")
+
+--Properties:
+
+ScreenGui.Parent = game.CoreGui
+
+main.Name = "main"
+main.Parent = ScreenGui
+main.BackgroundColor3 = Color3.fromRGB(30, 111, 60)
+main.Position = UDim2.new(0.423547387, 0, 0.443181843, 0)
+main.Size = UDim2.new(0, 446, 0, 280)
+main.Active = true
+main.Draggable = true
+
+label.Name = "label"
+label.Parent = main
+label.BackgroundColor3 = Color3.fromRGB(5, 216, 12)
+label.Size = UDim2.new(0, 446, 0, 50)
+label.Font = Enum.Font.SciFi
+label.Text = "Made by uflygiveegg"
+label.TextColor3 = Color3.fromRGB(0, 0, 0)
+label.TextSize = 14.000
+
+hatch.Name = "hatch"
+hatch.Parent = main
+hatch.BackgroundColor3 = Color3.fromRGB(34, 226, 4)
+hatch.Position = UDim2.new(0.275784761, 0, 0.285714179, 0)
+hatch.Size = UDim2.new(0, 200, 0, 159)
+hatch.Font = Enum.Font.SciFi
+hatch.Text = "Hatch"
+hatch.TextColor3 = Color3.fromRGB(0, 0, 0)
+hatch.TextSize = 14.000
+hatch.MouseButton1Down:connect(function()
+	
+	local args = {
+		[1] = workspace.Eggs.Robot,
+		[2] = false,
+		[3] = true
+	}
+
+	game:GetService("ReplicatedStorage").Events.Client.purchaseEgg2:InvokeServer(unpack(args))
+	
+end)
